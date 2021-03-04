@@ -23,7 +23,7 @@ def stop():
     GPIO.output(Motor2E,GPIO.LOW)
  
 def setup():
-	GPIO.setmode(GPIO.BCM)				# GPIO Numbering
+	GPIO.setmode(GPIO.BCM) # GPIO Numbering
 	GPIO.setup(Motor1A,GPIO.OUT)  # All pins as Outputs
 	GPIO.setup(Motor1B,GPIO.OUT)
     GPIO.setup(Motor1E,GPIO.OUT)
@@ -67,6 +67,3 @@ def left(speed):
 	GPIO.output(Motor2B,GPIO.LOW)
     pwm2.ChangeDutyCycle(speed)
 
-def turnAround():
-    #180 degree turn and like back up kinda beat
-    #we may need the GPS and compass to be able to do this and the other turning functions
