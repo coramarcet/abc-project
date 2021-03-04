@@ -23,7 +23,7 @@ def stop():
     GPIO.output(Motor2E,GPIO.LOW)
  
 def setup():
-	GPIO.setmode(GPIO.BCM)				# GPIO Numbering
+	GPIO.setmode(GPIO.BCM)
 	GPIO.setup(Motor1A,GPIO.OUT)  # All pins as Outputs
 	GPIO.setup(Motor1B,GPIO.OUT)
     GPIO.setup(Motor1E,GPIO.OUT)
