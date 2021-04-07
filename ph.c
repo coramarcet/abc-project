@@ -1,7 +1,5 @@
 //code for pH sensor
 
-//CODE FOR ARDUINO AS ADC
-
 #define SENSOR A0
 #define OFFSET 0.00
 #define LED 13
