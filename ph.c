@@ -1,4 +1,6 @@
-#code for pH sensor
+//code for pH sensor
+
+//CODE FOR ARDUINO AS ADC
 
 #define SENSOR A0
 #define OFFSET 0.00
@@ -13,8 +15,8 @@ int pH;
 void setup() {
   // put your setup code here, to run once:
   pinMode(LED,OUTPUT);
-  Serial.begin(9600);
-  Serial.println("PH SENSOR KIT VOLTAGE TEST!");
+  Serial.begin(9600); //serial communication
+  //Serial.println("PH SENSOR KIT VOLTAGE TEST!");
 }
 
 void loop() {
@@ -22,6 +24,7 @@ void loop() {
   static unsigned long SAMPLING_TIME = millis();
   static unsigned long PRINT_TIME = millis();
   static float VOLTAGE;
+  static float pH;
   if(millis()-SAMPLING_TIME>SAMPLING_INTERVAL)
   {
     PH_ARRAY[PH_ARRAY_INDEX++]=analogRead(SENSOR);
@@ -31,11 +34,11 @@ void loop() {
   }
   if(millis()-PRINT_TIME>PRINT_INTERVAL)
   {
-    Serial.print("VOLTAGE OUTPUT");
-    Serial.println(VOLTAGE,4);
+    //Serial.print("VOLTAGE OUTPUT");
+    //Serial.println(VOLTAGE,4);
     pH = -5.241*VOLTAGE + 21.89;
-    Serial.print("pH OUTPUT");
-    Serial.println(pH,4);
+    //Serial.print("pH OUTPUT");
+    Serial.println(pH,4); //I've commented out all other println because the RPi only needs to read the pH
     digitalWrite(LED,digitalRead(LED)^1);
     PRINT_TIME = millis();
   }
