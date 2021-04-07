@@ -9,7 +9,7 @@ def setup():
 def loop():
     while(True):
         distance = getSonar()
-        #print ("The distance is : %.2f cm"%(distance))
+        #print ("Tdhe distance is : %.2f cm"%(distance))
         if distance < 25:
             right(50)
         else:
