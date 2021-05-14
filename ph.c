@@ -27,14 +27,14 @@ void loop() {
   {
     PH_ARRAY[PH_ARRAY_INDEX++]=analogRead(SENSOR);
     if(PH_ARRAY_INDEX==ARRAY_LENGTH)PH_ARRAY_INDEX=0;
-    VOLTAGE=AVERAGE_ARRAY(PH_ARRAY,ARRAY_LENGTH)*5.0/1024;
+    VOLTAGE=AVERAGE_ARRAY(PH_ARRAY,ARRAY_LENGTH);
     SAMPLING_TIME = millis();
   }
   if(millis()-PRINT_TIME>PRINT_INTERVAL)
   {
     //Serial.print("VOLTAGE OUTPUT");
     //Serial.println(VOLTAGE,4);
-    pH = -5.241*VOLTAGE + 21.89;
+    pH = 6.7 + ((2.5 - VOLTAGE)/0.28)
     //Serial.print("pH OUTPUT");
     Serial.println(pH,4); //I've commented out all other println because the RPi only needs to read the pH
     digitalWrite(LED,digitalRead(LED)^1);
