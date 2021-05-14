@@ -94,4 +94,3 @@ forward(30)
 sleep(5)
 stop()
 GPIO.cleanup()
-    
