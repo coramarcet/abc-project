@@ -1,3 +1,6 @@
+# Gets the serial data from the arduino, which is the pH value.
+# The arduino is the worm, and connected to a wire (string) to the RPi.
+
 import serial
 import time
 
@@ -12,8 +15,13 @@ class getSerial:
         decoded_bytes = float(ser_bytes[0:len(ser_bytes)-1].decode("utf-8"))
         return(decoded_bytes)
     
-# obj = getSerial()
-# for i in range(100):
-#     print(obj.getpH())
-#     time.sleep(0.5)
-
+    
+obj = getSerial()
+for i in range(100):
+    #print(obj.getpH())
+    text_file = open("data.txt", "w")
+    line = []
+    line += pH
+    text_files.writelines(line)
+    text_file.close()
+    time.sleep(0.5)
