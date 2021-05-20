@@ -37,6 +37,11 @@ void loop() {
     pH = 6.7 + ((2.5 - VOLTAGE)/0.28)
     //Serial.print("pH OUTPUT");
     Serial.println(pH,4); //I've commented out all other println because the RPi only needs to read the pH
+    text_file = open("data/nbl_names.txt","w")
+    line = []
+    line += pH
+    text_file.writelines(line)
+    text_file.close()
     digitalWrite(LED,digitalRead(LED)^1);
     PRINT_TIME = millis();
   }
